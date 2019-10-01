@@ -128,3 +128,16 @@ body {
 .absloute-link {
     color: #005b96;
 }
+
+.personal-accounts-links {
+    display: flex;
+}
+
+.personal-account-img-link {
+    max-width: 35px;
+    margin-right: 9px;
+}
+
+.personal-account-img-link:hover {
+    opacity: 0.6;
+}
