@@ -19,6 +19,7 @@ body {
 }
 
 #game-canvas {
+    margin-top: 40px;
     display: inline;
     background-color: #005b96;
     border-top: 12px solid #005b96;
@@ -27,7 +28,7 @@ body {
 
 .main-content {
     /* vvv equal to game width */
-    width: 500px; 
+    width: 510px; 
     text-align: center;
     margin-left: 20%;
     margin-right: 20%;
@@ -82,4 +83,33 @@ body {
 
 .current-score-value {
     font-size: 23px;
+}
+
+.game-short-objective {
+    margin: 0;
+}
+
+.above-game {
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-short-objective {
+    color: #005b96;   
+}
+
+.new-game-button {
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #005b96;
+    color: white;
+}
+
+.new-game-button:hover {
+    opacity: 0.9;
 }
