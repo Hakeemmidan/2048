@@ -21,3 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 })
+
+
+window.onload = function() {
+    // Do stuff here
+    
+}
