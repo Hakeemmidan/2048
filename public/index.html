@@ -9,14 +9,40 @@
   <body>
     <main id='main'></main>
     <script type="module" src="./javascripts/index.js"></script>
-    <div class="canvas-container">
-      <canvas 
-        id="game-canvas"
-        width="500"
-        height="500">
-        Canvas not supported by browser.
-        Use one of the browsers listed under 'Browser Support' here: https://www.w3schools.com/tags/ref_canvas.asp
-      </canvas>
+    <div class="main-content">
+      <div class="heading">
+        <p class="game-title">
+          2048
+        </p>
+        <div class="heading-boxes">
+          <div class="current-score-container">
+            <div class="current-score-label">
+              score
+            </div>
+            <div class="current-score-value">
+              123
+            </div>
+          </div>
+          <div class="best-score-container">
+            <div class="best-score-label">
+              Best
+            </div>
+            <div class="best-score-value">
+              123
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-container">
+        <canvas 
+          id="game-canvas"
+          width="500"
+          height="500">
+          Canvas not supported by browser.
+          Use one of the browsers listed under 'Browser Support' here: https://www.w3schools.com/tags/ref_canvas.asp
+        </canvas>
+      </div>
+
     </div>
     
     </div>
