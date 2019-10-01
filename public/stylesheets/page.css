@@ -95,7 +95,7 @@ body {
 }
 
 .game-short-objective {
-    color: #005b96;   
+    color: #005b96;
 }
 
 .new-game-button {
@@ -112,4 +112,19 @@ body {
 
 .new-game-button:hover {
     opacity: 0.9;
+}
+
+.how-to-play {
+    margin-top: 30px;
+    text-align: left;
+    color: #005b96;
+}
+
+.note-about-game {
+    text-align: left;
+    color: #005b96;
+}
+
+.absloute-link {
+    color: #005b96;
 }
