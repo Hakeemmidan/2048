@@ -32,8 +32,5 @@ window.onload = function() {
     const GAME_WIDTH = 500
     const GAME_HEIGHT = 500
 
-    
-
     new Background(ctx, GAME_WIDTH, GAME_HEIGHT)
-
 }
