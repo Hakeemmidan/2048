@@ -1,0 +1,22 @@
+/* Color scheme from : https://digitalsynopsis.com/design/beautiful-color-palettes-combinations-schemes/ */
+/* "Beautiful Blues": #011f4b • #03396c • #005b96 • #6497b1 • #b3cde0 */
+
+html {
+    background-color: skyblue;
+}
+body {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+#game-canvas {
+    background-color: #005b96;
+}
+
+/* Inspired by: https://stackoverflow.com/a/20457076/7974948 */
+/* .grid-background-block {
+    float:left;
+    width: 20%;
+    padding-bottom: 20%;
+    margin:1.66%;
+    background-color: #1E1E1E;
+} */

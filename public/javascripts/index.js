@@ -1,3 +1,4 @@
+import { Background } from './background'
 const axios = require('axios');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,6 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 window.onload = function() {
-    // Do stuff here
-    
+    const canvas = this.document.getElementById('game-canvas')
+    let ctx = canvas.getContext('2d')
+
+    const GAME_WIDTH = 500
+    const GAME_HEIGHT = 500
+
+    new Background(ctx, GAME_WIDTH, GAME_HEIGHT)
+
+    ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
 }
