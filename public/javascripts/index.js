@@ -27,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
 window.onload = function() {
     const canvas = this.document.getElementById('game-canvas')
     let ctx = canvas.getContext('2d')
+    // ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
 
     const GAME_WIDTH = 500
     const GAME_HEIGHT = 500
 
+    
+
     new Background(ctx, GAME_WIDTH, GAME_HEIGHT)
 
-    ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
 }
