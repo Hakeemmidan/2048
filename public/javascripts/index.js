@@ -1,4 +1,6 @@
-import { Background } from './background'
+import { Background } from './background';
+import { Cell } from './cell';
+
 const axios = require('axios');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +33,8 @@ window.onload = function() {
 
     const GAME_WIDTH = 500
     const GAME_HEIGHT = 500
-
+    const padding = 10
+    
     new Background(ctx, GAME_WIDTH, GAME_HEIGHT)
+    new Cell(ctx, GAME_WIDTH, padding)
 }
