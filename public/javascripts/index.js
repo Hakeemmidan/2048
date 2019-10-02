@@ -51,10 +51,10 @@ window.onload = function() {
     
     let lastTime = 0;
     function gameLoop(timeStamp) {
-        // new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+        ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
+        new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
         let deltaTime = timeStamp - lastTime
         lastTime = timeStamp
-        // ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
         cell.update(deltaTime)
         cell.draw(ctx)
 
