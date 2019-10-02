@@ -26,16 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
-// Disable arrow key scrolling
-// Source : https://stackoverflow.com/a/8916697/7974948
-document.addEventListener("keydown", function (e) {
-    if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-        e.preventDefault();
-    }
-}, false);
-
 
 window.onload = function() {
+    // Disable arrow key scrolling
+    // Source : https://stackoverflow.com/a/8916697/7974948
+    document.addEventListener("keydown", function (e) {
+        if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+            e.preventDefault();
+        }
+    }, false);
+
     const canvas = this.document.getElementById('game-canvas')
     let ctx = canvas.getContext('2d')
     
@@ -46,8 +46,8 @@ window.onload = function() {
     const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
 
     new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
-    const cell = new Cell      (ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
-    const cell2 = new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+    const cell = new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+    const cell2 = new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding, cell)
     new InputHandler(cell)
     new InputHandler(cell2)
     

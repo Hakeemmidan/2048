@@ -1,5 +1,5 @@
 export class Cell {
-    constructor(ctx, gameHeight, cellHeight, padding) {
+    constructor(ctx, gameHeight, cellHeight, padding, cell2) {
         this.padding = padding
         this.cellHeight = cellHeight
         this.gameHeight = gameHeight
@@ -7,8 +7,9 @@ export class Cell {
             x: 0,
             y: 0
         }
-        this.maxSpeed = 20
+        this.maxSpeed = 40
         this.speed = 0
+        this.cell2 = cell2
 
         this.draw = this.draw.bind(this)
         this.generateAllLocations = this.generateAllLocations.bind(this)
@@ -33,6 +34,7 @@ export class Cell {
 
     update(deltaTime) {
         if (!deltaTime) return
+        if (!this.cell2) return
         this.position[this.movementAxis] += this.speed
         if (this.position.x < 0) {
             this.position.x = 0
@@ -42,6 +44,10 @@ export class Cell {
             this.position.y = 0
         } else if (this.position.y > this.gameHeight - this.cellHeight - this.padding) {
             this.position.y = this.gameHeight - this.cellHeight - this.padding
+        } else if (this.position.x <= this.cell2.position.x
+                    && this.position.x >= this.cell2.position.x + this.cellHeight
+                    && this.position.y === this.cell2.position.y) {
+            this.position.x = this.cell2.position.x
         }
     }
 
