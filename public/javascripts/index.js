@@ -31,10 +31,10 @@ window.onload = function() {
     let ctx = canvas.getContext('2d')
     // ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
 
-    const GAME_WIDTH = 500
     const GAME_HEIGHT = 500
     const padding = 10
-    
-    new Background(ctx, GAME_WIDTH, GAME_HEIGHT)
-    new Cell(ctx, GAME_WIDTH, padding)
+    const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
+
+    new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+    new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
 }
