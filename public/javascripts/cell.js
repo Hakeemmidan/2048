@@ -3,6 +3,10 @@ export class Cell {
         this.padding = padding
         this.cellHeight = cellHeight
         this.gameHeight = gameHeight
+        this.position = {
+            x: 0,
+            y: 0
+        }
 
         this.draw = this.draw.bind(this)
         this.generateAllLocations = this.generateAllLocations.bind(this)
@@ -13,10 +17,13 @@ export class Cell {
 
     draw(ctx) {
         const randomLocation = this.allLocations[parseInt(Math.random() * this.allLocations.length)]
-        ctx.beginPath()
-        ctx.rect(randomLocation[0], randomLocation[1], this.cellHeight, this.cellHeight)
         ctx.fillStyle = 'pink'
-        ctx.fill()
+        ctx.fillRect(randomLocation[0], randomLocation[1], this.cellHeight, this.cellHeight)
+        this.position = { x: randomLocation[0], y: randomLocation[1] }
+    }
+
+    update() {
+
     }
 
     generateAllLocations() {

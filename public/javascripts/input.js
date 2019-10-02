@@ -4,7 +4,7 @@ export class InputHandler {
             switch (e.keyCode) {
                 case 38:
                 case 87:
-                    console.log('up')
+                    cell.moveUp()
                     break;
                 case 39:
                 case 68:
