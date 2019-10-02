@@ -14,6 +14,7 @@ export class Cell {
         this.generateAllLocations = this.generateAllLocations.bind(this)
         this.generateRandomLocation = this.generateRandomLocation.bind(this)
         this.moveRight = this.moveRight.bind(this)
+        this.moveLeft = this.moveLeft.bind(this)
         this.update = this.update.bind(this)
 
         this.allLocations = this.generateAllLocations()
@@ -42,6 +43,10 @@ export class Cell {
 
     moveRight() {
         this.speed = this.maxSpeed
+    }
+
+    moveLeft() {
+        this.speed = -this.maxSpeed
     }
 
     generateAllLocations() {

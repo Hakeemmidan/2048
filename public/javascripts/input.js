@@ -17,6 +17,7 @@ export class InputHandler {
                     break;
                 case 37:
                 case 65:
+                    cell.moveLeft()
                     console.log('left')
                     break;
                 default:

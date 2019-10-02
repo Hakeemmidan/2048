@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 window.onload = function() {
     const canvas = this.document.getElementById('game-canvas')
     let ctx = canvas.getContext('2d')
-    // ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
-
+    
     const GAME_HEIGHT = 500
+    // ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
+
     const padding = 10
     const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
 
@@ -42,9 +43,10 @@ window.onload = function() {
     
     let lastTime = 0;
     function gameLoop(timeStamp) {
+        // new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
         let deltaTime = timeStamp - lastTime
         lastTime = timeStamp
-        // cell.clearRect(0,0, GAME_HEIGHT, GAME_HEIGHT)
+        // ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
         cell.update(deltaTime)
         cell.draw(ctx)
 
