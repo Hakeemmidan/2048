@@ -44,8 +44,12 @@ window.onload = function() {
     function gameLoop(timeStamp) {
         let deltaTime = timeStamp - lastTime
         lastTime = timeStamp
-        cell.clearRect(0,0, GAME_HEIGHT, GAME_HEIGHT)
+        // cell.clearRect(0,0, GAME_HEIGHT, GAME_HEIGHT)
         cell.update(deltaTime)
         cell.draw(ctx)
+
+        requestAnimationFrame(gameLoop)
     }
+
+    gameLoop()
 }
