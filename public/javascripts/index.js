@@ -39,4 +39,13 @@ window.onload = function() {
     new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
     const cell = new Cell      (ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
     new InputHandler(cell)
+    
+    let lastTime = 0;
+    function gameLoop(timeStamp) {
+        let deltaTime = timeStamp - lastTime
+        lastTime = timeStamp
+        cell.clearRect(0,0, GAME_HEIGHT, GAME_HEIGHT)
+        cell.update(deltaTime)
+        cell.draw(ctx)
+    }
 }
