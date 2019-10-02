@@ -26,13 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
+// Disable arrow scrolling
+// Source : https://stackoverflow.com/a/8916697/7974948
+window.addEventListener("keydown", function (e) {
+    if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 
 window.onload = function() {
     const canvas = this.document.getElementById('game-canvas')
     let ctx = canvas.getContext('2d')
     
     const GAME_HEIGHT = 500
-    // ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
+    ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
 
     const padding = 10
     const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
