@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
-// Disable arrow scrolling
+// Disable arrow key scrolling
 // Source : https://stackoverflow.com/a/8916697/7974948
-window.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", function (e) {
     if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
         e.preventDefault();
     }
