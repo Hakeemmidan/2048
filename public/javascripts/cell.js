@@ -7,7 +7,7 @@ export class Cell {
             x: 0,
             y: 0
         }
-        this.maxSpeed = 5
+        this.maxSpeed = 20
         this.speed = 0
 
         this.draw = this.draw.bind(this)
