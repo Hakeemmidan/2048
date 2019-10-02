@@ -7,6 +7,8 @@ export class Cell {
             x: 0,
             y: 0
         }
+        this.maxSpeed = 5
+        this.speed = 0
 
         this.draw = this.draw.bind(this)
         this.generateAllLocations = this.generateAllLocations.bind(this)
@@ -22,8 +24,18 @@ export class Cell {
         this.position = { x: randomLocation[0], y: randomLocation[1] }
     }
 
-    update() {
+    update(deltaTime) {
+        if (!deltaTime) return
+        this.position.x = this.speed
+        if (this.position.x < 0) {
+            this.position.x = 0
+        } else if (this.position.x > this.gameHeight - this.cellHeight ) {
+            this.position.x = this.gameHeight - this.cellHeight
+        }
+    }
 
+    moveRight() {
+        this.speed = this.maxSpeed
     }
 
     generateAllLocations() {

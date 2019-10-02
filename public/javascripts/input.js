@@ -4,10 +4,11 @@ export class InputHandler {
             switch (e.keyCode) {
                 case 38:
                 case 87:
-                    cell.moveUp()
+                    console.log('up')
                     break;
                 case 39:
                 case 68:
+                    cell.moveRight()
                     console.log('right')
                     break;
                 case 40:
