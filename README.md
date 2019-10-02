@@ -27,7 +27,7 @@
 - An arrow key event causes an addition of a square at a random position (that doesn't have another square)
 
 ## 5. Collusion of squares (1 day(s))
-- A collusion of squares of the same value should combbine them into one
+- A collusion of squares of the same value should combbine them into one if they share the same value
 
 ## 6. Game over (0.5 day(s))
 - Once the 2048 square is reached, indicate that the player had won the game
