@@ -1,5 +1,6 @@
 import { Background } from './background';
 import { Cell } from './cell';
+import { InputHandler } from './input';
 
 const axios = require('axios');
 
@@ -36,5 +37,6 @@ window.onload = function() {
     const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
 
     new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
-    new Cell      (ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+    const cell = new Cell      (ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+    new InputHandler(cell)
 }
