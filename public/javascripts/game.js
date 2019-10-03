@@ -41,10 +41,13 @@ export class Game {
     }
 
     addCell() {
-        let randomLocation = this.generateRandomLocation()
-        let newCell = new Cell(this, randomLocation)
-        this.gameMovingObjects.push(newCell)
-        new InputHandler(newCell)
+        const that = this
+        setTimeout(() => {
+            let randomLocation = that.generateRandomLocation()
+            let newCell = new Cell(that, randomLocation)
+            that.gameMovingObjects.push(newCell)
+            new InputHandler(newCell)
+        }, 100);
     }
     
     update(deltaTime) {

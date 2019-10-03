@@ -37,26 +37,27 @@ export class Cell {
             || this.right  < this.padding + cell.left ) {
             return false
          } else {
-             if (this.speed < 0 && this.movementAxis === 'y') {
-                 // top to bottom collusion
-                 console.log('top to bottom collide')
-                this.speed = 0
-                this.position['y'] = cell.position.y + this.padding + this.cellHeight   
-             } 
-            //  else if (this.speed > 0 && this.movementAxis === 'y') {
+            // if (this.speed < 0 && this.movementAxis === 'y') {
+            //     // top to bottom collusion
+            //     console.log('top to bottom collide')
+            //     this.speed = 0
+            //     this.position['y'] = cell.position.y + this.padding + this.cellHeight
+            // }
+            // else if (this.speed > 0 && this.movementAxis === 'y') {
             //     //  bottom to top collusion
             //     this.speed = 0
             //     this.position['y'] = cell.position.y - this.padding - this.cellHeight
-            //  } 
-            //  else if (this.speed > 0 && this.movementAxis === 'x') {
+            // }
+            // else if (this.speed > 0 && this.movementAxis === 'x') {
             //     //  left to right collusion
             //     this.speed = 0
             //     this.position['x'] = cell.position.x - this.padding - this.cellHeight
-            //  } 
-            //  else if (this.speed < 0 && this.movementAxis === 'x') {
-            //      this.speed = 0
-            //      this.position['x'] = cell.position.x + this.padding + this.cellHeight
-            //  }
+            // }
+            // else if (this.speed < 0 && this.movementAxis === 'x') {
+            //     this.speed = 0
+            //     this.position['x'] = cell.position.x + this.padding + this.cellHeight
+            // }
+             this.isCollided = true
              return true
          }
     }
@@ -76,6 +77,8 @@ export class Cell {
         } else if (this.position.y > this.gameHeight - this.cellHeight - this.padding) {
             this.speed = 0
             this.position.y = this.gameHeight - this.cellHeight - this.padding
+        } else if (this.isCollided) {
+            
         }
     }
 
