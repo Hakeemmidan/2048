@@ -16,6 +16,7 @@ export class Cell {
         this.moveRight = this.moveRight.bind(this)
         this.moveLeft = this.moveLeft.bind(this)
         this.update = this.update.bind(this)
+        this.detectCollusion = this.detectCollusion.bind(this)
 
         this.allLocations = this.generateAllLocations()
         this.generateRandomLocation()
@@ -29,6 +30,17 @@ export class Cell {
     draw(ctx) {
         ctx.fillStyle = 'pink'
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
+    }
+
+    detectCollusion(cell) {
+        // if (this.position.y === cell.position.y
+        //     && this.position.x + this.cellHeight + this.padding >= cell.position.x
+        //     && this.speed > 0
+        //     && this.movementAxis === 'x') {
+        //         // x direction collusion going from left to right
+        //         // stop it at the beginning of the neighboring block
+        //         this.position.x = cell.position.x - this.cellHeight - this.padding
+        //     }
     }
 
     update(deltaTime) {

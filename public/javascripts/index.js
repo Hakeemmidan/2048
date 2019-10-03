@@ -57,10 +57,13 @@ window.onload = function() {
         new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
         let deltaTime = timeStamp - lastTime
         lastTime = timeStamp
-        cell2.update(deltaTime)
-        cell2.draw(ctx)
         cell.update(deltaTime)
         cell.draw(ctx)
+        cell.detectCollusion(cell2)
+
+        cell2.update(deltaTime)
+        cell2.draw(ctx)
+        cell2.detectCollusion(cell)
 
         requestAnimationFrame(gameLoop)
     }
