@@ -10,10 +10,16 @@ export class Cell {
         this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
+        this.colors = ['#9400D3', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000']
+        this.generateRandomColor()
+    }
+
+    generateRandomColor() {
+        this.color = this.colors[parseInt(Math.random() * this.colors.length)]
     }
 
     draw(ctx) {
-        ctx.fillStyle = 'pink'
+        ctx.fillStyle = this.color
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
     }
     
@@ -33,6 +39,7 @@ export class Cell {
          } else {
              if (this.speed < 0 && this.movementAxis === 'y') {
                  // top to bottom collusion
+                 console.log('top to bottom collide')
                 this.speed = 0
                 this.position['y'] = cell.position.y + this.padding + this.cellHeight   
              } 
@@ -56,7 +63,6 @@ export class Cell {
 
     update(deltaTime) {
         if (!deltaTime) return
-        this.position[this.movementAxis] += this.speed
         if (this.position.x < 0) {
             this.speed = 0
             this.position.x = 0
@@ -70,6 +76,7 @@ export class Cell {
             this.speed = 0
             this.position.y = this.gameHeight - this.cellHeight - this.padding
         }
+        this.position[this.movementAxis] += this.speed
     }
 
     moveRight() {
