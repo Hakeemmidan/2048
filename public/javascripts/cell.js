@@ -27,10 +27,29 @@ export class Cell {
         if (
                this.bottom < this.padding + cell.top
             || this.left   > this.padding + cell.right
-            || this.top    > this.padding +cell.bottom
-            || this.right  < this.padding +cell.left ) {
+            || this.top    > this.padding + cell.bottom
+            || this.right  < this.padding + cell.left ) {
             return false
          } else {
+             if (this.speed < 0 && this.movementAxis === 'y') {
+                 // top to bottom collusion
+                this.speed = 0
+                this.position['y'] = cell.position.y + this.padding + this.cellHeight   
+             } 
+            //  else if (this.speed > 0 && this.movementAxis === 'y') {
+            //     //  bottom to top collusion
+            //     this.speed = 0
+            //     this.position['y'] = cell.position.y - this.padding - this.cellHeight
+            //  } 
+            //  else if (this.speed > 0 && this.movementAxis === 'x') {
+            //     //  left to right collusion
+            //     this.speed = 0
+            //     this.position['x'] = cell.position.x - this.padding - this.cellHeight
+            //  } 
+            //  else if (this.speed < 0 && this.movementAxis === 'x') {
+            //      this.speed = 0
+            //      this.position['x'] = cell.position.x + this.padding + this.cellHeight
+            //  }
              return true
          }
     }
