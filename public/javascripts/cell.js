@@ -7,8 +7,7 @@ export class Cell {
             x: location[0],
             y: location[1]
         }
-        this.collide = false
-        this.maxSpeed = 40
+        this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
     }
@@ -26,13 +25,12 @@ export class Cell {
 
     checkCollusion(cell) {
         if (
-               this.bottom < cell.top
-            || this.left   > cell.right
-            || this.top    > cell.bottom
-            || this.right  < cell.left) {
+               this.bottom < this.padding + cell.top
+            || this.left   > this.padding + cell.right
+            || this.top    > this.padding +cell.bottom
+            || this.right  < this.padding +cell.left ) {
             return false
          } else {
-             this.collide = true
              return true
          }
     }
