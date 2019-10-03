@@ -8,7 +8,7 @@ export class Game {
         this.gameHeight = gameHeight
         this.padding = padding
         
-        this.allLocations = []
+        this.allLocations = this.generateAllLocations()
         this.gameStaticObjects = []
         this.gameMovingObjects = []
     }
@@ -25,13 +25,11 @@ export class Game {
             }
         }
 
-        this.allLocations = allLocations
+        return allLocations
     }
 
     generateRandomLocation() {
-        this.generateAllLocations()
         let randomLocation = this.allLocations[parseInt(Math.random() * this.allLocations.length)]
-
         return randomLocation
     }
 
