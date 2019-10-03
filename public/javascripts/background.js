@@ -1,8 +1,8 @@
 export class Background {
-    constructor(gameHeight, cellHeight, padding) {
-        this.gameHeight = gameHeight
-        this.cellHeight = cellHeight
-        this.padding = padding
+    constructor(game) {
+        this.cellHeight = game.cellHeight
+        this.gameHeight = game.gameHeight
+        this.padding = game.padding
     }
 
     draw(ctx) {
@@ -17,5 +17,9 @@ export class Background {
                     ctx.fill()
             }
         }
+    }
+
+    update() {
+        // dummy function to re-render background
     }
 }

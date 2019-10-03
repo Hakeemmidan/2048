@@ -1,17 +1,33 @@
 export class Cell {
-    constructor(gameHeight, cellHeight, padding) {
-        this.padding = padding
-        this.cellHeight = cellHeight
-        this.gameHeight = gameHeight
+    constructor(game) {
+        this.cellHeight = game.cellHeight
+        this.gameHeight = game.gameHeight
+        this.padding = game.padding
         this.position = {
             x: 0,
             y: 0
         }
         this.maxSpeed = 40
         this.speed = 0
+        this.movementAxis = 'x'
 
         this.allLocations = this.generateAllLocations()
         this.generateRandomLocation()
+    }
+
+    generateAllLocations() {
+        // Generates all the locations where a cell can park
+        const gridLimit = this.gameHeight + this.cellHeight
+        const increment = this.cellHeight + this.padding
+        const allLocations = [];
+
+        for (let col = 0; col < gridLimit - increment; col += increment) {
+            for (let row = 0; row < gridLimit - increment; row += increment) {
+                allLocations.push([row, col])
+            }
+        }
+
+        return allLocations
     }
 
     generateRandomLocation() {
@@ -67,20 +83,5 @@ export class Cell {
     moveDown() {
         this.speed = this.maxSpeed
         this.movementAxis = 'y'
-    }
-
-    generateAllLocations() {
-        // Generates all the locations where a cell can park
-        const gridLimit = this.gameHeight + this.cellHeight
-        const increment = this.cellHeight + this.padding
-        const allLocations = [];
-
-        for (let col = 0; col < gridLimit - increment; col += increment) {
-            for (let row = 0; row < gridLimit - increment; row += increment) {
-                allLocations.push([row, col])
-            }
-        }
-
-        return allLocations
     }
 }

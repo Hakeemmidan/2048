@@ -1,6 +1,4 @@
-import { Background } from './background';
-import { Cell } from './cell';
-import { InputHandler } from './input';
+import { Game } from './game';
 
 const axios = require('axios');
 
@@ -39,31 +37,22 @@ window.onload = function() {
     const canvas = this.document.getElementById('game-canvas')
     let ctx = canvas.getContext('2d')
     
+    const padding = 10
     const GAME_HEIGHT = 500
+    const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
     ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
 
-    const padding = 10
-    const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
-
-    const background = new Background(GAME_HEIGHT, CELL_HEIGHT, padding)
-    const cell = new Cell(GAME_HEIGHT, CELL_HEIGHT, padding)
-    const cell2 = new Cell(GAME_HEIGHT, CELL_HEIGHT, padding)
-    new InputHandler(cell)
-    new InputHandler(cell2)
+    let game = new Game(GAME_HEIGHT, CELL_HEIGHT, padding)
+    game.start()
     
     let lastTime = 0;
     function gameLoop(timeStamp) {
-        ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
-        background.draw(ctx)
         let deltaTime = timeStamp - lastTime
         lastTime = timeStamp
-        cell.update(deltaTime)
-        cell.draw(ctx)
-        cell.detectCollusion(cell2)
-
-        cell2.update(deltaTime)
-        cell2.draw(ctx)
-        cell2.detectCollusion(cell)
+        ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
+        
+        game.update(deltaTime)
+        game.draw(ctx)
 
         requestAnimationFrame(gameLoop)
     }
