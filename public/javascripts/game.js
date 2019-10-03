@@ -58,4 +58,8 @@ export class Game {
         this.gameStaticObjects.forEach( object => object.draw(ctx))
         this.gameMovingObjects.forEach(object => object.draw(ctx))
     }
+
+    get gameOver() {
+        
+    }
 }
