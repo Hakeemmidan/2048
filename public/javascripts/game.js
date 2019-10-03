@@ -15,6 +15,12 @@ export class Game {
         new InputHandler(cell)
         this.gameObjects = [this.background, this.cell]
     }
-
     
+    update(deltaTime) {
+        this.gameObjects.forEach( object => object.update(deltaTime) )
+    }
+
+    draw(ctx) {
+        this.gameObjects.forEach( object => object.draw(ctx) )
+    }
 }
