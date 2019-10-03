@@ -17,10 +17,10 @@ export class Cell {
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
     }
     // v1 : Make getter methods for all sides of a cell
-    get top() { return this.position.y + this.padding }
-    get right() { return this.position.x + this.cellHeight + this.padding }
-    get bottom() { return this.position.y + this.cellHeight + this.padding }
-    get left() { return this.position.x + this.padding }
+    get top() { return this.position.y }
+    get right() { return this.position.x + this.cellHeight }
+    get bottom() { return this.position.y + this.cellHeight }
+    get left() { return this.position.x }
     
 
     checkCollusion(cell) {

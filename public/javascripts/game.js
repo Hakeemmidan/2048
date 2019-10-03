@@ -48,7 +48,6 @@ export class Game {
     }
     
     update(deltaTime) {
-        this.gameMovingObjects.forEach( object => object.update(deltaTime) )
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
             const object1 = this.gameMovingObjects[i]
             for (let j = i + 1; j < this.gameMovingObjects.length; j++) {
@@ -56,6 +55,7 @@ export class Game {
                 object1.checkCollusion(object2)
             }
         }
+        this.gameMovingObjects.forEach(object => object.update(deltaTime))
     }
 
     draw(ctx) {
