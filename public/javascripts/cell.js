@@ -16,7 +16,7 @@ export class Cell {
         ctx.fillStyle = 'pink'
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
     }
-    // v1 : Make getter methods for all sides of a cell
+    
     get top() { return this.position.y }
     get right() { return this.position.x + this.cellHeight }
     get bottom() { return this.position.y + this.cellHeight }
@@ -24,8 +24,11 @@ export class Cell {
     
 
     checkCollusion(cell) {
-        if (this.bottom < cell.top || this.left > cell.right 
-            || this.top > cell.bottom || this.right < cell.left) {
+        if (
+               this.bottom < cell.top
+            || this.left   > cell.right
+            || this.top    > cell.bottom
+            || this.right  < cell.left) {
             return false
          } else {
              this.speed = 0

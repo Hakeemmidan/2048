@@ -63,7 +63,16 @@ export class Game {
         this.gameMovingObjects.forEach( object => object.draw(ctx) )
     }
 
-    get gameOver() {
-        
-    }
+    // checkLose() {
+    //     if (this.generateRandomLocation().length === 0) {
+    //         return true
+    //     }
+    //     return false
+    // }
+
+    // checkGameOver() {
+    //     if (this.checkLose()) {
+    //         console.log('Game over. lose')
+    //     }
+    // }
 }
