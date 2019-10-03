@@ -11,11 +11,18 @@ export class Cell {
         this.maxSpeed = 40
         this.speed = 0
         this.movementAxis = 'x'
+        this.colors = ['#9400D3', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000']
+        this.generateRandomColor()
+    }
+
+    generateRandomColor() {
+        this.color = this.colors[parseInt(Math.random() * this.colors.length)]
     }
 
     draw(ctx) {
-        ctx.fillStyle = 'pink'
+        ctx.fillStyle = this.color
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
+        ctx.globalAlpha = 0.3 // changing the opacity of the rectangle 
     }
     
     get top() { return this.position.y }
