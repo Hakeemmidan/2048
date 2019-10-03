@@ -41,11 +41,8 @@ export class Game {
     }
 
     addCell() {
-        // We need to make sure that a new cell doesn't appear on top of a new cell
-
         let randomLocation = this.generateRandomLocation()
         let newCell = new Cell(this, randomLocation)
-
         this.gameMovingObjects.push(newCell)
         new InputHandler(newCell)
     }

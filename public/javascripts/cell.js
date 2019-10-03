@@ -16,16 +16,15 @@ export class Cell {
         ctx.fillStyle = 'pink'
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
     }
+    // v1 : Make getter methods for all sides of a cell
+    get top() { return this.y }
+    get right() { return this.x + this.cellHeight }
+    get bottom() { return this.position.y + this.cellHeight }
+    get left() { return this.x }
+    
 
     detectCollusion(cell) {
-        // if (this.position.y === cell.position.y
-        //     && this.position.x + this.cellHeight + this.padding >= cell.position.x
-        //     && this.speed > 0
-        //     && this.movementAxis === 'x') {
-        //         // x direction collusion going from left to right
-        //         // stop it at the beginning of the neighboring block
-        //         this.position.x = cell.position.x - this.cellHeight - this.padding
-        //     }
+
     }
 
     update(deltaTime) {
