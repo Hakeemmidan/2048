@@ -29,7 +29,9 @@ export class Game {
     }
 
     generateRandomLocation() {
-        let randomLocation = this.allLocations[parseInt(Math.random() * this.allLocations.length)]
+        const yesCellLocations = this.gameMovingObjects.map( cell => Object.values(cell.position))
+        const noCellLocations = this.allLocations.filter( loc => !String(yesCellLocations).includes(String(loc))) // Strings b/c JS arrays don't use Arraay#inclues well
+        let randomLocation = noCellLocations[parseInt(Math.random() * noCellLocations.length)]
         return randomLocation
     }
 
