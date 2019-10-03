@@ -7,6 +7,7 @@ export class Cell {
             x: location[0],
             y: location[1]
         }
+        this.collide = false
         this.maxSpeed = 40
         this.speed = 0
         this.movementAxis = 'x'
@@ -31,6 +32,7 @@ export class Cell {
             || this.right  < cell.left) {
             return false
          } else {
+             this.collide = true
              this.speed = 0
              return true
          }
@@ -40,12 +42,16 @@ export class Cell {
         if (!deltaTime) return
         this.position[this.movementAxis] += this.speed
         if (this.position.x < 0) {
+            this.speed = 0
             this.position.x = 0
         } else if (this.position.x > this.gameHeight - this.cellHeight - this.padding ) {
+            this.speed = 0
             this.position.x = this.gameHeight - this.cellHeight - this.padding
         } else if (this.position.y < 0) {
+            this.speed = 0
             this.position.y = 0
         } else if (this.position.y > this.gameHeight - this.cellHeight - this.padding) {
+            this.speed = 0
             this.position.y = this.gameHeight - this.cellHeight - this.padding
         }
     }

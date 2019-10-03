@@ -60,7 +60,6 @@ window.onload = function() {
         lastTime = timeStamp
         ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
     
-        game.checkGameOver()
         game.update(deltaTime)
         game.draw(ctx)
 
