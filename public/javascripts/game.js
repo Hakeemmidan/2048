@@ -13,14 +13,16 @@ export class Game {
         this.background = new Background(this)
         this.cell = new Cell(this)
         new InputHandler(this.cell)
-        this.gameObjects = [this.background, this.cell]
+        this.gameStaticObjects = [ this.background ]
+        this.gameMovingObjects = [ this.cell ]
     }
     
     update(deltaTime) {
-        this.gameObjects.forEach( object => object.update(deltaTime) )
+        this.gameMovingObjects.forEach( object => object.update(deltaTime))
     }
 
     draw(ctx) {
-        this.gameObjects.forEach( object => object.draw(ctx) )
+        this.gameStaticObjects.forEach( object => object.draw(ctx))
+        this.gameMovingObjects.forEach(object => object.draw(ctx))
     }
 }

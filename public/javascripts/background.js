@@ -19,7 +19,4 @@ export class Background {
         }
     }
 
-    update() {
-        // dummy function to re-render background
-    }
 }
