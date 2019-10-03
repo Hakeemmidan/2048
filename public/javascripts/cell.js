@@ -63,6 +63,7 @@ export class Cell {
 
     update(deltaTime) {
         if (!deltaTime) return
+        this.position[this.movementAxis] += this.speed
         if (this.position.x < 0) {
             this.speed = 0
             this.position.x = 0
@@ -76,7 +77,6 @@ export class Cell {
             this.speed = 0
             this.position.y = this.gameHeight - this.cellHeight - this.padding
         }
-        this.position[this.movementAxis] += this.speed
     }
 
     moveRight() {
