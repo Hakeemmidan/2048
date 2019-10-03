@@ -17,19 +17,18 @@ export class Cell {
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
     }
     // v1 : Make getter methods for all sides of a cell
-    get top() { return this.position.y }
-    get right() { return this.position.x + this.cellHeight }
-    get bottom() { return this.position.y + this.cellHeight }
-    get left() { return this.position.x }
+    get top() { return this.position.y + this.padding }
+    get right() { return this.position.x + this.cellHeight + this.padding }
+    get bottom() { return this.position.y + this.cellHeight + this.padding }
+    get left() { return this.position.x + this.padding }
     
 
     checkCollusion(cell) {
-        // TODO : Don't forget to source this
         if (this.bottom < cell.top || this.left > cell.right 
             || this.top > cell.bottom || this.right < cell.left) {
-                return false
+            return false
          } else {
-             console.log('Collusion!!!!')
+             this.speed = 0
              return true
          }
     }
