@@ -3,8 +3,6 @@ export class Background {
         this.gameHeight = gameHeight
         this.cellHeight = cellHeight
         this.padding = padding
-
-        this.draw = this.draw.bind(this)
     }
 
     draw(ctx) {

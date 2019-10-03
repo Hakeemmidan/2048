@@ -10,14 +10,6 @@ export class Cell {
         this.maxSpeed = 40
         this.speed = 0
 
-        this.draw = this.draw.bind(this)
-        this.generateAllLocations = this.generateAllLocations.bind(this)
-        this.generateRandomLocation = this.generateRandomLocation.bind(this)
-        this.moveRight = this.moveRight.bind(this)
-        this.moveLeft = this.moveLeft.bind(this)
-        this.update = this.update.bind(this)
-        this.detectCollusion = this.detectCollusion.bind(this)
-
         this.allLocations = this.generateAllLocations()
         this.generateRandomLocation()
     }
