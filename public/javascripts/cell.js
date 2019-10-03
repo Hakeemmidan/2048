@@ -1,5 +1,5 @@
 export class Cell {
-    constructor(ctx, gameHeight, cellHeight, padding) {
+    constructor(gameHeight, cellHeight, padding) {
         this.padding = padding
         this.cellHeight = cellHeight
         this.gameHeight = gameHeight

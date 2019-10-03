@@ -46,8 +46,8 @@ window.onload = function() {
     const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
 
     const background = new Background(GAME_HEIGHT, CELL_HEIGHT, padding)
-    const cell = new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
-    const cell2 = new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+    const cell = new Cell(GAME_HEIGHT, CELL_HEIGHT, padding)
+    const cell2 = new Cell(GAME_HEIGHT, CELL_HEIGHT, padding)
     new InputHandler(cell)
     new InputHandler(cell2)
     
