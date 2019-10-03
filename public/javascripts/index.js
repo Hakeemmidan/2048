@@ -45,7 +45,7 @@ window.onload = function() {
     const padding = 10
     const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding
 
-    new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+    const background = new Background(GAME_HEIGHT, CELL_HEIGHT, padding)
     const cell = new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
     const cell2 = new Cell(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
     new InputHandler(cell)
@@ -54,7 +54,7 @@ window.onload = function() {
     let lastTime = 0;
     function gameLoop(timeStamp) {
         ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
-        new Background(ctx, GAME_HEIGHT, CELL_HEIGHT, padding)
+        background.draw(ctx)
         let deltaTime = timeStamp - lastTime
         lastTime = timeStamp
         cell.update(deltaTime)

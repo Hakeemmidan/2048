@@ -1,12 +1,10 @@
 export class Background {
-    constructor(ctx, gameHeight, cellHeight, padding) {
-        this.ctx = ctx
+    constructor(gameHeight, cellHeight, padding) {
         this.gameHeight = gameHeight
         this.cellHeight = cellHeight
         this.padding = padding
 
         this.draw = this.draw.bind(this)
-        this.draw(ctx)   
     }
 
     draw(ctx) {
