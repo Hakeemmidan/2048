@@ -46,6 +46,13 @@ window.onload = function() {
             e.preventDefault();
         }
     }, false);
+
+    // Add cell on-click of AWSD as well
+    document.addEventListener("keydown", function (e) {
+        if ([87, 65, 83, 68].indexOf(e.keyCode) > -1) {
+            game.addCell();
+        }
+    }, false);
     
     let lastTime = 0;
     function gameLoop(timeStamp) {
