@@ -7,7 +7,7 @@ export class Cell {
             x: location[0],
             y: location[1]
         }
-        this.maxSpeed = 100
+        this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
         this.colors = ['#9400D3', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000']
@@ -36,7 +36,8 @@ export class Cell {
             || this.right < cell.left) {
             return false
         } else {
-            if (this.speed < 0 && this.movementAxis === 'y') {
+            this.collidedWithCellPos = cell.position
+            if ((this.speed < 0) && this.movementAxis === 'y') {
                 this.topColided = true
                 // top to bottom collusion
                 console.log('top to bottom collide')
@@ -63,6 +64,14 @@ export class Cell {
                 console.log('right to left collide')
                 this.speed = 0
                 this.position['x'] = cell.position.x + this.padding + this.cellHeight
+            }
+            // now check if the other cell is moving and 'this' is not
+            else if ((cell.speed < 0) && cell.movementAxis === 'y') {
+                cell.topColided = true
+                // top to bottom collusion
+                console.log('hazzaaahhhhhhh!!!!')
+                cell.speed = 0
+                cell.position['y'] = this.position.y + cell.padding + cell.cellHeight
             }
             this.isCollided = true
             return true
@@ -101,6 +110,7 @@ export class Cell {
 
     moveUp() {
         if (this.speed != 0) return
+        if (this.topColided) return
         this.movementAxis = 'y'
         this.speed = -this.maxSpeed // Because canvas axis go from the top left of screen
     }
