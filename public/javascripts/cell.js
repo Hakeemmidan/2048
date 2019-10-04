@@ -11,7 +11,7 @@ export class Cell {
         this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
-        this.colors = ['#9400D3', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000']
+        this.colors = ['#a7d3fa']
         this.generateRandomColor()
     }
 
@@ -23,7 +23,7 @@ export class Cell {
         ctx.fillStyle = this.color
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
         ctx.font = '70px sans-serif'
-        ctx.fillStyle ='white'
+        ctx.fillStyle ='#1876b5'
         ctx.fillText(String(this.value), this.position.x + 40, this.position.y + 80)
     }
     
