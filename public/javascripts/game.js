@@ -42,10 +42,12 @@ export class Game {
     }
 
     addCell() {
+        const randomValueArr = [2,4]
+        const randomValue = randomValueArr[parseInt(Math.random() * randomValueArr.length)]
         const that = this
         setTimeout(() => {
             let randomLocation = that.generateRandomLocation()
-            let newCell = new Cell(that, randomLocation)
+            let newCell = new Cell(that, randomLocation, randomValue)
             that.gameMovingObjects.push(newCell)
             new InputHandler(newCell)
         }, 100);

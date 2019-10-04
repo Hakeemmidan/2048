@@ -1,5 +1,5 @@
 export class Cell {
-    constructor(game, location) {
+    constructor(game, location, value) {
         this.cellHeight = game.cellHeight
         this.gameHeight = game.gameHeight
         this.padding = game.padding
@@ -7,7 +7,7 @@ export class Cell {
             x: location[0],
             y: location[1]
         }
-        this.value = 64
+        this.value = value
         this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
