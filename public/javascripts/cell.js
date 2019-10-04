@@ -36,7 +36,6 @@ export class Cell {
             || this.right < cell.left) {
             return false
         } else {
-            this.collidedWithCellPos = cell.position
             if ((this.speed < 0) && this.movementAxis === 'y') {
                 this.topColided = true
                 // top to bottom collusion
@@ -69,10 +68,26 @@ export class Cell {
             else if ((cell.speed < 0) && cell.movementAxis === 'y') {
                 cell.topColided = true
                 // top to bottom collusion
-                console.log('hazzaaahhhhhhh!!!!')
+                console.log('top to bottom collide')
                 cell.speed = 0
                 cell.position['y'] = this.position.y + cell.padding + cell.cellHeight
             }
+            else if (cell.speed > 0 && cell.movementAxis === 'y') {
+                cell.bottomColided = true
+                //  bottom to top collusion
+                console.log('bottom to top collide')
+                cell.speed = 0
+                cell.position['y'] = this.position.y - cell.padding - cell.cellHeight
+            }
+            else if (cell.speed > 0 && cell.movementAxis === 'x') {
+                cell.rightColided = true
+                //  left to right collusion
+                console.log('left to right collide')
+                cell.speed = 0
+                cell.position['x'] = this.position.x - cell.padding - cell.cellHeight
+            }
+
+            
             this.isCollided = true
             return true
         }
@@ -98,6 +113,7 @@ export class Cell {
 
     moveRight() {
         if (this.speed != 0) return
+        if (this.rightColided) return
         this.movementAxis = 'x'
         this.speed = this.maxSpeed
     }
@@ -117,6 +133,7 @@ export class Cell {
 
     moveDown() {
         if (this.speed != 0) return
+        if (this.bottomColided) return
         this.movementAxis = 'y'
         this.speed = this.maxSpeed
     }
