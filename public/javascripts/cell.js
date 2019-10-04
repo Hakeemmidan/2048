@@ -7,7 +7,7 @@ export class Cell {
             x: location[0],
             y: location[1]
         }
-        this.maxSpeed = 70
+        this.maxSpeed = 100
         this.speed = 0
         this.movementAxis = 'x'
         this.colors = ['#9400D3', '#0000FF', '#00FF00', '#FFFF00', '#FF7F00', '#FF0000']
@@ -86,7 +86,13 @@ export class Cell {
                 cell.speed = 0
                 cell.position['x'] = this.position.x - cell.padding - cell.cellHeight
             }
-
+            else if (cell.speed < 0 && cell.movementAxis === 'x') {
+                cell.leftColided = true
+                // right to left colusion
+                console.log('right to left collide')
+                cell.speed = 0
+                cell.position['x'] = this.position.x + cell.padding + cell.cellHeight
+            }
             
             this.isCollided = true
             return true
@@ -120,6 +126,7 @@ export class Cell {
 
     moveLeft() {
         if (this.speed != 0) return
+        if (this.leftColided) return
         this.movementAxis = 'x'
         this.speed = -this.maxSpeed
     }
