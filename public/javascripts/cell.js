@@ -37,12 +37,12 @@ export class Cell {
             || this.right  < this.padding + cell.left ) {
             return false
          } else {
-            // if (this.speed < 0 && this.movementAxis === 'y') {
-            //     // top to bottom collusion
-            //     console.log('top to bottom collide')
-            //     this.speed = 0
-            //     this.position['y'] = cell.position.y + this.padding + this.cellHeight
-            // }
+            if (this.speed < 0 && this.movementAxis === 'y') {
+                // top to bottom collusion
+                console.log('top to bottom collide')
+                this.speed = 0
+                this.position['y'] = cell.position.y + this.padding + this.cellHeight
+            }
             // else if (this.speed > 0 && this.movementAxis === 'y') {
             //     //  bottom to top collusion
             //     this.speed = 0
@@ -77,9 +77,13 @@ export class Cell {
         } else if (this.position.y > this.gameHeight - this.cellHeight - this.padding) {
             this.speed = 0
             this.position.y = this.gameHeight - this.cellHeight - this.padding
-        } else if (this.isCollided) {
-            
-        }
+        } 
+        // else if (this.isCollided && this.speed < 0 && this.movementAxis === 'y') {
+        //         // top to bottom collusion
+        //         console.log('top to bottom collide')
+        //         this.speed = 0
+        //         this.position['y'] = this.position.y
+        // }
     }
 
     moveRight() {
