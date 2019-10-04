@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 window.onload = function() {
     const canvas = this.document.getElementById('game-canvas')
     let ctx = canvas.getContext('2d')
-
     const padding = 10
     const GAME_HEIGHT = 500
     const CELL_HEIGHT = (GAME_HEIGHT / 4) - padding

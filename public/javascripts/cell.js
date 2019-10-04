@@ -88,28 +88,24 @@ export class Cell {
     }
 
     moveRight() {
-        if (this.rightColided) return
         if (this.speed != 0) return
         this.movementAxis = 'x'
         this.speed = this.maxSpeed
     }
 
     moveLeft() {
-        if (this.leftColided) return
         if (this.speed != 0) return
         this.movementAxis = 'x'
         this.speed = -this.maxSpeed
     }
 
     moveUp() {
-        if (this.topColided) return
         if (this.speed != 0) return
         this.movementAxis = 'y'
         this.speed = -this.maxSpeed // Because canvas axis go from the top left of screen
     }
 
     moveDown() {
-        if (this.bottomColided) return
         if (this.speed != 0) return
         this.movementAxis = 'y'
         this.speed = this.maxSpeed
