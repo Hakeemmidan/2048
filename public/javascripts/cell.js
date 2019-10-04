@@ -7,22 +7,32 @@ export class Cell {
             x: location[0],
             y: location[1]
         }
-        this.value = 2
+        this.value = 64
         this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
         this.backgroundColors = {
-            2: '#a7d3fa'
+            2: '#a7d3fa',
+            4: '#82c2fa',
+            8: '#ffa500',
+            16: '#ff8400',
+            32: '#e36200',
+            64: '#bf0000'
         }
         this.fontColors = {
-            2: '#1876b5'
+            2: '#1876b5',
+            4: '#1876b5',
+            8: '#ffffff',
+            16: '#ffffff',
+            32: '#ffffff',
+            64: '#ffffff'
         }
     }
 
     draw(ctx) {
         ctx.fillStyle = this.backgroundColors[this.value]
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
-        ctx.font = '70px sans-serif'
+        ctx.font = '60px sans-serif'
         ctx.fillStyle = this.fontColors[this.value]
         ctx.fillText(String(this.value), this.position.x + 40, this.position.y + 80)
     }
