@@ -6,11 +6,11 @@ export class Background {
     }
 
     draw(ctx) {
-        const gridLimit = this.gameHeight + this.cellHeight
+        const gridLimit = this.gameHeight
         const increment = this.cellHeight + this.padding
 
-        for (let col = 0; col < gridLimit; col += increment) {
-            for (let row = 0; row < gridLimit; row += increment) {
+        for (let col = 0; col <= gridLimit; col += increment) {
+            for (let row = 0; row <= gridLimit; row += increment) {
                     ctx.beginPath()
                     ctx.rect(row, col, this.cellHeight, this.cellHeight)
                     ctx.fillStyle = '#1876b5'
