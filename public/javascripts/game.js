@@ -54,9 +54,11 @@ export class Game {
     update(deltaTime) {
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
             const object1 = this.gameMovingObjects[i]
-            for (let j = i + 1; j < this.gameMovingObjects.length; j++) {
-                const object2 = this.gameMovingObjects[j]
-                object1.checkCollusion(object2)
+            for (let j = 0; j < this.gameMovingObjects.length; j++) {
+                if (!(JSON.stringify(this.gameMovingObjects[i].position) === JSON.stringify(this.gameMovingObjects[j].position))) {
+                    const object2 = this.gameMovingObjects[j]
+                    object1.checkCollusion(object2)
+                }
             }
         }
         this.gameMovingObjects.forEach(object => object.update(deltaTime))
