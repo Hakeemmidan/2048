@@ -1,6 +1,13 @@
 # Background and Overview
 2048 is a game where you could move square blocks around a contained grid. Once two square of the same value touch, then their values would sum and become one square. The goal of the game is to reach a square that has a value of 2048. All the squares are of even numbers.
 
+This game was originally made by Gabriele Cirulli. You can play it [here](https://play2048.co). This is a clone of it that I am doing to practice HTML5 Canvas.
+
+# Setup
+- `npm install` to install dependencies
+- `npm run build` to start Webpack
+- `npm start` to start Node server
+
 # Functionality and MVP
 ## 1. A 4x4 Grid (1 day(s))
 - A styled 4x4 grid is appearent on the screen
