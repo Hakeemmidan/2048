@@ -52,6 +52,10 @@ export class Game {
             new InputHandler(newCell)
         }, 100);
     }
+
+    mergeCells(cell1, cell2, location) {
+        
+    }
     
     update(deltaTime) {
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
