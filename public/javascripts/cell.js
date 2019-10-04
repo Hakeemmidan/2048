@@ -11,19 +11,19 @@ export class Cell {
         this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
-        this.colors = ['#a7d3fa']
-        this.generateRandomColor()
-    }
-
-    generateRandomColor() {
-        this.color = this.colors[parseInt(Math.random() * this.colors.length)]
+        this.backgroundColors = {
+            2: '#a7d3fa'
+        }
+        this.fontColors = {
+            2: '#1876b5'
+        }
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.color
+        ctx.fillStyle = this.backgroundColors[this.value]
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
         ctx.font = '70px sans-serif'
-        ctx.fillStyle ='#1876b5'
+        ctx.fillStyle = this.fontColors[this.value]
         ctx.fillText(String(this.value), this.position.x + 40, this.position.y + 80)
     }
     
