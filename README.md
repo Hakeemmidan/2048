@@ -5,8 +5,8 @@ This game was originally made by Gabriele Cirulli. You can play it [here](https:
 
 # Setup
 - `npm install` to install dependencies
-- `npm run build` to start Webpack
-- `npm start` to start Node server
+- `npm run build` to start Webpack (do this in one terminal window)
+- `npm start` to start Node server (do this in another terminal window)
 
 # Functionality and MVP
 ## 1. A 4x4 Grid (1 day(s))
