@@ -30,10 +30,10 @@ export class Cell {
 
     checkCollusion(cell) {
         if (
-            this.bottom < this.padding + cell.top
-            || this.left > this.padding + cell.right
-            || this.top > this.padding + cell.bottom
-            || this.right < this.padding + cell.left) {
+            this.bottom < cell.top
+            || this.left > cell.right
+            || this.top > cell.bottom
+            || this.right < cell.left) {
             return false
         } else {
             if (this.speed < 0 && this.movementAxis === 'y') {
