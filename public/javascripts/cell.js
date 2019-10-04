@@ -7,6 +7,7 @@ export class Cell {
             x: location[0],
             y: location[1]
         }
+        this.value = 2
         this.maxSpeed = 70
         this.speed = 0
         this.movementAxis = 'x'
@@ -21,6 +22,9 @@ export class Cell {
     draw(ctx) {
         ctx.fillStyle = this.color
         ctx.fillRect(this.position.x, this.position.y, this.cellHeight, this.cellHeight)
+        ctx.font = '70px sans-serif'
+        ctx.fillStyle ='white'
+        ctx.fillText(String(this.value), this.position.x + 40, this.position.y + 80)
     }
     
     get top() { return this.position.y }
@@ -122,33 +126,28 @@ export class Cell {
 
     moveRight() {
         if (this.speed != 0) return
-        if (this.rightColided) return
-        // objective : if there is a cell right next to you then do not move
-        // methhod : get the array of yesCellLocations and check if the position that the cell plans to move to already
-        // has a cell do not move (v1)
-            // v2 : check if there is an empty space to the right of the cell that you are trying to over take its place
-            // if there is, then move both
+        // if (this.rightColided) return
         this.movementAxis = 'x'
         this.speed = this.maxSpeed
     }
 
     moveLeft() {
         if (this.speed != 0) return
-        if (this.leftColided) return
+        // if (this.leftColided) return
         this.movementAxis = 'x'
         this.speed = -this.maxSpeed
     }
 
     moveUp() {
         if (this.speed != 0) return
-        if (this.topColided) return
+        // if (this.topColided) return
         this.movementAxis = 'y'
         this.speed = -this.maxSpeed // Because canvas axis go from the top left of screen
     }
 
     moveDown() {
         if (this.speed != 0) return
-        if (this.bottomColided) return
+        // if (this.bottomColided) return
         this.movementAxis = 'y'
         this.speed = this.maxSpeed
     }
