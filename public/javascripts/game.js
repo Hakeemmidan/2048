@@ -61,7 +61,6 @@ export class Game {
 
     mergeCells(cell1, cell2, location) {
         const id = this.generateCellId()
-        debugger
         new Cell(id, this, location, cell1.value + cell2.value)
     }
     
