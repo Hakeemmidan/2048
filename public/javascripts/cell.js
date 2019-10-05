@@ -96,18 +96,20 @@ export class Cell {
             }
 
             // left to right
+            else if (this.speed > 0 && this.movementAxis === 'x' && this.value === cell.value) {
+                this.game.mergeCells(this, cell, Object.values(cell.position))
+            }
             else if (this.speed > 0 && this.movementAxis === 'x') {
                 this.rightColided = true
-                // console.log('left to right collide')
                 this.speed = 0
                 this.position['x'] = cell.position.x - this.padding - this.cellHeight
             }
-            else if (cell.speed > 0 && cell.movementAxis === 'x') {
-                cell.rightColided = true
-                // console.log('left to right collide')
-                cell.speed = 0
-                cell.position['x'] = this.position.x - cell.padding - cell.cellHeight
-            }
+            // else if (cell.speed > 0 && cell.movementAxis === 'x') {
+            //     cell.rightColided = true
+            //     // console.log('left to right collide')
+            //     cell.speed = 0
+            //     cell.position['x'] = this.position.x - cell.padding - cell.cellHeight
+            // }
 
 
             // right to left
