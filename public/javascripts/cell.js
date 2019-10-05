@@ -58,8 +58,7 @@ export class Cell {
         } else {
             // top to bottom
             // if ((this.speed < 0) && this.movementAxis === 'y' && this.value === cell.value) {
-            //     console.log('combine cells!!!')
-            //     debugger
+            //     this.game.mergeCells(this, cell, Object.values(this.position))
             // }
             if ((cell.speed < 0) && cell.movementAxis === 'y' && this.value === cell.value) {
                 this.game.mergeCells(this, cell, Object.values(this.position))
@@ -82,12 +81,16 @@ export class Cell {
             //     this.speed = 0
             //     this.position['y'] = cell.position.y - this.padding - this.cellHeight
             // }
+            else if (this.speed > 0 && this.movementAxis === 'y' && this.value === cell.value) {
+                // TODO : Investigate why this is getting triggered
+                // this.game.mergeCells(this, cell, Object.values(this.position))
+            }
             else if (cell.speed > 0 && cell.movementAxis === 'y' && this.value === cell.value) {
                 this.game.mergeCells(this, cell, Object.values(this.position))
             }
             else if (cell.speed > 0 && cell.movementAxis === 'y') {
                 cell.bottomColided = true
-                console.log('bottom to top collide')
+                // console.log('bottom to top collide')
                 cell.speed = 0
                 cell.position['y'] = this.position.y - cell.padding - cell.cellHeight
             }
@@ -95,13 +98,13 @@ export class Cell {
             // left to right
             else if (this.speed > 0 && this.movementAxis === 'x') {
                 this.rightColided = true
-                console.log('left to right collide')
+                // console.log('left to right collide')
                 this.speed = 0
                 this.position['x'] = cell.position.x - this.padding - this.cellHeight
             }
             else if (cell.speed > 0 && cell.movementAxis === 'x') {
                 cell.rightColided = true
-                console.log('left to right collide')
+                // console.log('left to right collide')
                 cell.speed = 0
                 cell.position['x'] = this.position.x - cell.padding - cell.cellHeight
             }
@@ -110,13 +113,13 @@ export class Cell {
             // right to left
             else if (this.speed < 0 && this.movementAxis === 'x') {
                 this.leftColided = true
-                console.log('right to left collide')
+                // console.log('right to left collide')
                 this.speed = 0
                 this.position['x'] = cell.position.x + this.padding + this.cellHeight
             }
             else if (cell.speed < 0 && cell.movementAxis === 'x') {
                 cell.leftColided = true
-                console.log('right to left collide')
+                // console.log('right to left collide')
                 cell.speed = 0
                 cell.position['x'] = this.position.x + cell.padding + cell.cellHeight
             }
