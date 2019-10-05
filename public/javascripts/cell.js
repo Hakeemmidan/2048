@@ -1,5 +1,6 @@
 export class Cell {
-    constructor(game, location, value) {
+    constructor(id, game, location, value) {
+        this.id = id
         this.cellHeight = game.cellHeight
         this.gameHeight = game.gameHeight
         this.padding = game.padding

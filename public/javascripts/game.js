@@ -13,6 +13,11 @@ export class Game {
         this.gameMovingObjects = []
     }
 
+    // source : https://gist.github.com/gordonbrander/2230317
+    generateCellId() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+    }; 
+
     generateAllLocations() {
         // Generates all the locations where a cell can park
         const gridLimit = this.gameHeight + this.cellHeight
@@ -47,14 +52,16 @@ export class Game {
         const that = this
         setTimeout(() => {
             let randomLocation = that.generateRandomLocation()
-            let newCell = new Cell(that, randomLocation, randomValue)
+            const id = this.generateCellId()
+            let newCell = new Cell(id, that, randomLocation, randomValue)
             that.gameMovingObjects.push(newCell)
             new InputHandler(newCell)
         }, 100);
     }
 
     mergeCells(cell1, cell2, location) {
-        new Cell(this, location, cell1.value + cell2.value)
+        const id = this.generateCellId()
+        new Cell(id, this, location, cell1.value + cell2.value)
     }
     
     update(deltaTime) {
