@@ -62,7 +62,6 @@ export class Cell {
             //     debugger
             // }
             if ((cell.speed < 0) && cell.movementAxis === 'y' && this.value === cell.value) {
-                console.log('combine cells!!!')
                 this.game.mergeCells(this, cell, Object.values(this.position))
             }
             // else if ((this.speed < 0) && this.movementAxis === 'y') {
@@ -77,11 +76,14 @@ export class Cell {
             }
 
             // bottom to top
-            else if (this.speed > 0 && this.movementAxis === 'y') {
-                this.bottomColided = true
-                console.log('bottom to top collide')
-                this.speed = 0
-                this.position['y'] = cell.position.y - this.padding - this.cellHeight
+            // else if (this.speed > 0 && this.movementAxis === 'y') {
+            //     this.bottomColided = true
+            //     console.log('bottom to top collide')
+            //     this.speed = 0
+            //     this.position['y'] = cell.position.y - this.padding - this.cellHeight
+            // }
+            else if (cell.speed > 0 && cell.movementAxis === 'y' && this.value === cell.value) {
+                this.game.mergeCells(this, cell, Object.values(this.position))
             }
             else if (cell.speed > 0 && cell.movementAxis === 'y') {
                 cell.bottomColided = true
