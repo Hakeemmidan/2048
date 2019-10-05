@@ -61,6 +61,7 @@ export class Game {
 
     mergeCells(cell1, cell2, location) {
         const id = this.generateCellId()
+        debugger
         new Cell(id, this, location, cell1.value + cell2.value)
     }
     
@@ -68,7 +69,7 @@ export class Game {
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
             const object1 = this.gameMovingObjects[i]
             for (let j = 0; j < this.gameMovingObjects.length; j++) {
-                if (!(JSON.stringify(this.gameMovingObjects[i].position) === JSON.stringify(this.gameMovingObjects[j].position))) {
+                if (!((this.gameMovingObjects[i].id) === this.gameMovingObjects[j].id)) {
                     const object2 = this.gameMovingObjects[j]
                     object1.checkCollusion(object2)
                 }
