@@ -54,7 +54,7 @@ export class Game {
     }
 
     mergeCells(cell1, cell2, location) {
-        
+        new Cell(this, location, cell1.value + cell2.value)
     }
     
     update(deltaTime) {
