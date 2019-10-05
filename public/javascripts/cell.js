@@ -81,13 +81,11 @@ export class Cell {
             }
             else if (cell.speed > 0 && cell.movementAxis === 'y') {
                 cell.bottomColided = true
-                // console.log('bottom to top collide')
                 cell.speed = 0
                 cell.position['y'] = this.position.y - cell.padding - cell.cellHeight
             }
             else if (this.speed > 0 && this.movementAxis === 'y') {
                 this.bottomColided = true
-                console.log('bottom to top collide')
                 this.speed = 0
                 this.position['y'] = cell.position.y - this.padding - this.cellHeight
             }
@@ -103,7 +101,6 @@ export class Cell {
             }
             else if (cell.speed > 0 && cell.movementAxis === 'x') {
                 cell.rightColided = true
-                // console.log('left to right collide')
                 cell.speed = 0
                 cell.position['x'] = this.position.x - cell.padding - cell.cellHeight
             }
@@ -118,13 +115,11 @@ export class Cell {
             }
             else if (this.speed < 0 && this.movementAxis === 'x') {
                 this.leftColided = true
-                // console.log('right to left collide')
                 this.speed = 0
                 this.position['x'] = cell.position.x + this.padding + this.cellHeight
             }
             else if (cell.speed < 0 && cell.movementAxis === 'x') {
                 cell.leftColided = true
-                // console.log('right to left collide')
                 cell.speed = 0
                 cell.position['x'] = this.position.x + cell.padding + cell.cellHeight
             }
