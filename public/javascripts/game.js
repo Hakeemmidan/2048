@@ -58,10 +58,28 @@ export class Game {
             new InputHandler(newCell)
         }, 100);
     }
+    
+    deleteCellById(id) {
+        let unwantedElementIdx = -1
+        for (let i = 0; i < this.gameMovingObjects.length; i++) {
+            if (this.gameMovingObjects[i].id === id) {
+                unwantedElementIdx = i
+                break
+            }
+        }
+        if (unwantedElementIdx === -1) return 'Not found'
+        this.gameMovingObjects.splice(unwantedElementIdx, 1)
+        return 'Deleted!'
+    }
 
     mergeCells(cell1, cell2, location) {
         const id = this.generateCellId()
-        new Cell(id, this, location, cell1.value + cell2.value)
+        const newCell = new Cell(id, this, location, cell1.value + cell2.value)
+        this.gameMovingObjects.push(newCell)
+        new InputHandler(newCell)
+        // Delete old cells
+        this.deleteCellById(cell1.id)
+        this.deleteCellById(cell2.id)
     }
     
     update(deltaTime) {
