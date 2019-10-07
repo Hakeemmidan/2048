@@ -53,21 +53,22 @@ export class Game {
         })
     }
 
-    generateRandomLocation() {
-        const yesCellLocations = this.gameMovingObjects.map( cell => Object.values(cell.position))
-        const noCellLocations = this.allLocations.filter( loc => !JSON.stringify(yesCellLocations).includes(JSON.stringify(loc))) 
-        // Used JSON.stringify b/c JS arrays don't use Arraay#inclues as expected
-        let randomLocation = noCellLocations[parseInt(Math.random() * noCellLocations.length)]
-        return randomLocation
-    }
-
     start() {
         this.background = new Background(this)
         this.gameStaticObjects.push(this.background)
     }
 
+    // VVVVVVVVVV adding, deleting, and merging cells END VVVVVVVVVV //
+    generateRandomLocation() {
+        const yesCellLocations = this.gameMovingObjects.map(cell => Object.values(cell.position))
+        const noCellLocations = this.allLocations.filter(loc => !JSON.stringify(yesCellLocations).includes(JSON.stringify(loc)))
+        // Used JSON.stringify b/c JS arrays don't use Arraay#inclues as expected
+        let randomLocation = noCellLocations[parseInt(Math.random() * noCellLocations.length)]
+        return randomLocation
+    }
+    
     addCell() {
-        const randomValueArr = [2,4]
+        const randomValueArr = [2, 4]
         const randomValue = randomValueArr[parseInt(Math.random() * randomValueArr.length)]
         const that = this
         setTimeout(() => {
@@ -78,7 +79,7 @@ export class Game {
             new InputHandler(newCell)
         }, 100);
     }
-    
+
     deleteCellById(id) {
         let unwantedElementIdx = -1
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
@@ -101,7 +102,9 @@ export class Game {
         this.deleteCellById(cell1.id)
         this.deleteCellById(cell2.id)
     }
-    
+    // ^^^^^^^^^^ adding, deleting, and merging cells END ^^^^^^^^^^ //
+// ---------------------------------------------------------------------------------------- //
+    // VVVVVVVVVV draw and update START VVVVVVVVVV //
     update(deltaTime) {
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
             const object1 = this.gameMovingObjects[i]
@@ -159,17 +162,6 @@ export class Game {
         this.gameStaticObjects.forEach( object => object.draw(ctx) )
         this.gameMovingObjects.forEach( object => object.draw(ctx) )
     }
-
-    // checkLose() {
-    //     if (this.generateRandomLocation().length === 0) {
-    //         return true
-    //     }
-    //     return false
-    // }
-
-    // checkGameOver() {
-    //     if (this.checkLose()) {
-    //         console.log('Game over. lose')
-    //     }
-    // }
+    // ^^^^^^^^^^ draw and update END ^^^^^^^^^^ //
+    // ---------------------------------------------------------------------------------------- //
 }

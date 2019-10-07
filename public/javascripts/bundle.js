@@ -439,6 +439,13 @@ function () {
       });
     }
   }, {
+    key: "start",
+    value: function start() {
+      this.background = new _background__WEBPACK_IMPORTED_MODULE_0__["Background"](this);
+      this.gameStaticObjects.push(this.background);
+    } // VVVVVVVVVV adding, deleting, and merging cells END VVVVVVVVVV //
+
+  }, {
     key: "generateRandomLocation",
     value: function generateRandomLocation() {
       var yesCellLocations = this.gameMovingObjects.map(function (cell) {
@@ -450,12 +457,6 @@ function () {
 
       var randomLocation = noCellLocations[parseInt(Math.random() * noCellLocations.length)];
       return randomLocation;
-    }
-  }, {
-    key: "start",
-    value: function start() {
-      this.background = new _background__WEBPACK_IMPORTED_MODULE_0__["Background"](this);
-      this.gameStaticObjects.push(this.background);
     }
   }, {
     key: "addCell",
@@ -501,7 +502,10 @@ function () {
 
       this.deleteCellById(cell1.id);
       this.deleteCellById(cell2.id);
-    }
+    } // ^^^^^^^^^^ adding, deleting, and merging cells END ^^^^^^^^^^ //
+    // ---------------------------------------------------------------------------------------- //
+    // VVVVVVVVVV draw and update START VVVVVVVVVV //
+
   }, {
     key: "update",
     value: function update(deltaTime) {
@@ -569,17 +573,8 @@ function () {
       this.gameMovingObjects.forEach(function (object) {
         return object.draw(ctx);
       });
-    } // checkLose() {
-    //     if (this.generateRandomLocation().length === 0) {
-    //         return true
-    //     }
-    //     return false
-    // }
-    // checkGameOver() {
-    //     if (this.checkLose()) {
-    //         console.log('Game over. lose')
-    //     }
-    // }
+    } // ^^^^^^^^^^ draw and update END ^^^^^^^^^^ //
+    // ---------------------------------------------------------------------------------------- //
 
   }]);
 
