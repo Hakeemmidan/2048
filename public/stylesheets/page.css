@@ -1,0 +1,143 @@
+/* Color scheme from : https://digitalsynopsis.com/design/beautiful-color-palettes-combinations-schemes/ */
+/* "Beautiful Blues": #011f4b • #03396c • #005b96 • #6497b1 • #b3cde0 */
+
+html {
+    background-color: rgb(207, 229, 249);
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.canvas-container {
+    width: 100%;
+    text-align:center;
+}
+
+#game-canvas {
+    margin-top: 40px;
+    display: inline;
+    background-color: #005b96;
+    border-top: 12px solid #005b96;
+    border-left: 12px solid #005b96;
+}
+
+.main-content {
+    /* vvv equal to game width */
+    width: 510px; 
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.game-title {
+    font-size: 90px;
+    margin: 0;
+    color: #005b96;
+    font-weight: bold;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading-boxes {
+    display: flex;
+}
+
+.current-score-container {
+    width: 65px;
+    height: 50px;
+    border-radius: 5px;
+    padding-top: 5px;
+    color: white;
+    background-color: #1876b5;
+}
+
+.best-score-container {
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    padding-top: 5px;
+    margin-left: 10px;
+    color: white;
+    background-color: #1876b5;   
+}
+
+.current-score-label {
+    color: #b3cde0;
+}
+
+.best-score-label {
+    color: #b3cde0;   
+}
+
+#best-score-value-canvas {
+    font-size: 23px;
+}
+
+#current-score-value-canvas {
+    font-size: 23px;
+}
+
+.game-short-objective {
+    margin: 0;
+}
+
+.above-game {
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-short-objective {
+    color: #005b96;
+}
+
+.new-game-button {
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #1876b5;
+    color: white;
+}
+
+.new-game-button:hover {
+    opacity: 0.9;
+}
+
+.how-to-play {
+    margin-top: 30px;
+    text-align: left;
+    color: #005b96;
+}
+
+.note-about-game {
+    text-align: left;
+    color: #005b96;
+}
+
+.absloute-link {
+    color: #005b96;
+}
+
+.personal-accounts-links {
+    display: flex;
+}
+
+.personal-account-img-link {
+    max-width: 35px;
+    margin-right: 9px;
+}
+
+.personal-account-img-link:hover {
+    opacity: 0.6;
+}

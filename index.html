@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./public/stylesheets/page.css">
+  </head>
+  <body>
+    <main id='main'></main>
+    <script src="./public/javascripts/bundle.js"></script>
+    <div class="main-content">
+      <div class="heading">
+        <p class="game-title">
+          2048
+        </p>
+        <div class="heading-boxes">
+          <div class="current-score-container">
+            <div class="current-score-label">
+              score
+            </div>
+            <canvas
+              id="current-score-value-canvas"
+              height="25"
+              width="50">
+            </canvas>
+          </div>
+          <div class="best-score-container">
+            <div class="best-score-label">
+              Best
+            </div>
+            <canvas
+              id="best-score-value-canvas"
+              height="25"
+              width="70">
+            </canvas>
+          </div>
+        </div>
+      </div>
+      <div class="above-game">
+        <p class="game-short-objective">
+          Join the numbers to get to the <b>2048 tile!</b>
+        </p>
+        <button class="new-game-button" id="new-game-button">
+          New Game
+        </button>
+      </div>
+      <div class="canvas-container">
+        <canvas 
+          id="game-canvas"
+          width="500"
+          height="500">
+          Canvas is not supported by your browser.
+          Use one of the browsers listed under 'Browser Support' here: https://www.w3schools.com/tags/ref_canvas.asp
+        </canvas>
+      </div>
+
+      <p class="how-to-play">
+        <b>HOW TO PLAY:</b> Use your <b>arrow keys</b> to move the tiles. 
+        When two tiles with the same number touch, <b>they merge into one!</b>
+      </p>
+
+      <br>
+
+      <p class="note-about-game">
+        <b>Note:</b> 2048 was originally created by
+        <a 
+          href="https://gabrielecirulli.com"
+          class="absloute-link"
+          target="_blank">
+          <b>
+            Gabriele Cirulli
+          </b>
+        </a>. You can play it 
+        <a 
+          href="https://play2048.co/" 
+          class="absloute-link"
+          target="_blank">
+          <b>
+            here
+          </b>
+        </a>. This is just a copy that I 
+        (<a 
+          href="https://linkedin.com/in/abdulhakeem-almidan/"
+          class="absloute-link"
+          target="_blank">
+          Hakeem
+        </a>)
+        created to practice HTML5's canvas.
+      </p>
+
+      <div class="personal-accounts-links">
+        <a
+          href="https://github.com/Hakeemmidan"
+          target="_blank">
+              <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a
+                  href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+              <img
+                class="personal-account-img-link"
+                src="./public/assets/github-logo.png"
+                alt="Github logo">
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/abdulhakeem-almidan/"
+          target="_blank">
+            <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a
+              href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+          <img
+            class="personal-account-img-link"
+            src="./public/assets/linkedin-logo.png"
+            alt="LinkedIn logo">
+        </a>
+      </div>
+    </div>
+    
+    </div>
+  </body>
+</html>
