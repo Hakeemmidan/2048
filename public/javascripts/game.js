@@ -106,10 +106,6 @@ export class Game {
 // ---------------------------------------------------------------------------------------- //
     // VVVVVVVVVV draw and update START VVVVVVVVVV //
     update(deltaTime) {
-        if (this.checkGameOver()) {
-            return 'game over'
-        }
-
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
             const object1 = this.gameMovingObjects[i]
             for (let j = 0; j < this.gameMovingObjects.length; j++) {
@@ -224,7 +220,7 @@ export class Game {
     checkGameOver() {
         let rows = this.getAllRows()
         let columns = this.getAllColumns()
-        let resultBool = true
+        this.gameOverBool = true
 
         if (this.gameMovingObjects.length < 16) {
             return false
@@ -233,19 +229,19 @@ export class Game {
         rows.forEach(row => {
             row.sort((cell1, cell2) => cell1.position.x - cell2.position.x)
             if (this.hasConsecutiveEqualValues(row)) {
-                resultBool = false
+                this.gameOverBool = false
             }
         })
 
         columns.forEach(col => {
             col.sort((cell1, cell2) => cell1.position.y - cell2.position.y)
             if (this.hasConsecutiveEqualValues(col)) {
-                resultBool = false
+                this.gameOverBool = false
             }
         })
 
-        if (resultBool) console.log('game over')
-        return resultBool
+        if (this.gameOverBool) console.log('game over')
+        return this.gameOverBool
     }
     // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //
 }

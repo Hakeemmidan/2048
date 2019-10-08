@@ -509,10 +509,6 @@ function () {
   }, {
     key: "update",
     value: function update(deltaTime) {
-      if (this.checkGameOver()) {
-        return 'game over';
-      }
-
       for (var i = 0; i < this.gameMovingObjects.length; i++) {
         var object1 = this.gameMovingObjects[i];
 
@@ -647,7 +643,7 @@ function () {
 
       var rows = this.getAllRows();
       var columns = this.getAllColumns();
-      var resultBool = true;
+      this.gameOverBool = true;
 
       if (this.gameMovingObjects.length < 16) {
         return false;
@@ -659,7 +655,7 @@ function () {
         });
 
         if (_this3.hasConsecutiveEqualValues(row)) {
-          resultBool = false;
+          _this3.gameOverBool = false;
         }
       });
       columns.forEach(function (col) {
@@ -668,11 +664,11 @@ function () {
         });
 
         if (_this3.hasConsecutiveEqualValues(col)) {
-          resultBool = false;
+          _this3.gameOverBool = false;
         }
       });
-      if (resultBool) console.log('game over');
-      return resultBool;
+      if (this.gameOverBool) console.log('game over');
+      return this.gameOverBool;
     } // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //
 
   }]);
@@ -713,8 +709,10 @@ document.addEventListener('DOMContentLoaded', function () {
     bestScoreCtx.clearRect(0, 0, 80, 50);
     game.currentScore = 0;
     game.gameMovingObjects = [];
+    game.gameOverBool = false;
     game.start();
     game.addCell();
+    gameLoop();
   }); // Disable arrow key scrolling
   // Source : https://stackoverflow.com/a/8916697/7974948
 
@@ -743,7 +741,12 @@ document.addEventListener('DOMContentLoaded', function () {
     ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT);
     game.update(deltaTime);
     game.draw(ctx, currentScoreCtx, bestScoreCtx);
-    requestAnimationFrame(gameLoop);
+    var myReq = requestAnimationFrame(gameLoop);
+
+    if (game.checkGameOver()) {
+      cancelAnimationFrame(myReq);
+      ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT);
+    }
   }
 
   gameLoop();

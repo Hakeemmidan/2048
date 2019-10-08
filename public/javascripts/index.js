@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
         bestScoreCtx.clearRect(0, 0, 80, 50)
         game.currentScore = 0
         game.gameMovingObjects = []
+        game.gameOverBool = false
         game.start()
         game.addCell()
+        gameLoop()
     })
 
     // Disable arrow key scrolling
@@ -59,8 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
         game.update(deltaTime)
         game.draw(ctx, currentScoreCtx, bestScoreCtx)
+        const myReq = requestAnimationFrame(gameLoop)
 
-        requestAnimationFrame(gameLoop)
+        if (game.checkGameOver()) {
+            cancelAnimationFrame(myReq)
+            ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
+        }
     }
 
     gameLoop()
