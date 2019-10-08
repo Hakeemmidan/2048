@@ -170,26 +170,26 @@ export class Game {
     // ^^^^^^^^^^ draw and update END ^^^^^^^^^^ //
     // ---------------------------------------------------------------------------------------- //
     // VVVVVVVVVV check game over START VVVVVVVVVV //
-    // Gets a column at a certain position
-    getColumn(colPos) {
-        const resultCols = []
-        this.gameMovingObjects.forEach(cell => {
-            if (cell.position.y === colPos) {
-                resultCols.push(cell)
-            }
-        })
-        return resultCols
-    }
-
-    // Gets a row at a certain position
-    getRow(rowPos) {
+    // Gets a row at a certain y position
+    getRow(rowYPos) {
         const resultRows = []
         this.gameMovingObjects.forEach(cell => {
-            if (cell.position.x === rowPos) {
+            if (cell.position.y === rowYPos) {
                 resultRows.push(cell)
             }
         })
         return resultRows
+    }
+
+    // Gets a col at a certain x position
+    getColumn(colXPos) {
+        const resultCols = []
+        this.gameMovingObjects.forEach(cell => {
+            if (cell.position.x === colXPos) {
+                resultCols.push(cell)
+            }
+        })
+        return resultCols
     }
 
     hasConsecutiveEqualValues(cells) {
@@ -225,27 +225,28 @@ export class Game {
         const rows = this.getAllRows()
         const columns = this.getAllColumns()
         let resultBool = true
-        const that = this
+
+        debugger
 
         if (this.gameMovingObjects.length < 16) {
             return false
         }
 
         rows.forEach(row => {
-            if (!this.hasConsecutiveEqualValues(row)) {
+            if (this.hasConsecutiveEqualValues(row)) {
                 debugger
                 resultBool = false
             }
         })
 
         columns.forEach(col => {
-            debugger
-            if (!this.hasConsecutiveEqualValues(col)) {
+            if (this.hasConsecutiveEqualValues(col)) {
                 debugger
                 resultBool = false
             }
         })
-        if (!resultBool) console.log('game over')
+
+        if (resultBool) console.log('game over')
         return resultBool
     }
     // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //

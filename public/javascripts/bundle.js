@@ -580,30 +580,30 @@ function () {
     } // ^^^^^^^^^^ draw and update END ^^^^^^^^^^ //
     // ---------------------------------------------------------------------------------------- //
     // VVVVVVVVVV check game over START VVVVVVVVVV //
-    // Gets a column at a certain position
-
-  }, {
-    key: "getColumn",
-    value: function getColumn(colPos) {
-      var resultCols = [];
-      this.gameMovingObjects.forEach(function (cell) {
-        if (cell.position.y === colPos) {
-          resultCols.push(cell);
-        }
-      });
-      return resultCols;
-    } // Gets a row at a certain position
+    // Gets a row at a certain y position
 
   }, {
     key: "getRow",
-    value: function getRow(rowPos) {
+    value: function getRow(rowYPos) {
       var resultRows = [];
       this.gameMovingObjects.forEach(function (cell) {
-        if (cell.position.x === rowPos) {
+        if (cell.position.y === rowYPos) {
           resultRows.push(cell);
         }
       });
       return resultRows;
+    } // Gets a col at a certain x position
+
+  }, {
+    key: "getColumn",
+    value: function getColumn(colXPos) {
+      var resultCols = [];
+      this.gameMovingObjects.forEach(function (cell) {
+        if (cell.position.x === colXPos) {
+          resultCols.push(cell);
+        }
+      });
+      return resultCols;
     }
   }, {
     key: "hasConsecutiveEqualValues",
@@ -648,27 +648,25 @@ function () {
       var rows = this.getAllRows();
       var columns = this.getAllColumns();
       var resultBool = true;
-      var that = this;
+      debugger;
 
       if (this.gameMovingObjects.length < 16) {
         return false;
       }
 
       rows.forEach(function (row) {
-        if (!_this3.hasConsecutiveEqualValues(row)) {
+        if (_this3.hasConsecutiveEqualValues(row)) {
           debugger;
           resultBool = false;
         }
       });
       columns.forEach(function (col) {
-        debugger;
-
-        if (!_this3.hasConsecutiveEqualValues(col)) {
+        if (_this3.hasConsecutiveEqualValues(col)) {
           debugger;
           resultBool = false;
         }
       });
-      if (!resultBool) console.log('game over');
+      if (resultBool) console.log('game over');
       return resultBool;
     } // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //
 
