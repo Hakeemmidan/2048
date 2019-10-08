@@ -66,7 +66,7 @@ export class Game {
         let randomLocation = noCellLocations[parseInt(Math.random() * noCellLocations.length)]
         return randomLocation
     }
-    
+
     addCell() {
         const randomValueArr = [2, 4]
         const randomValue = randomValueArr[parseInt(Math.random() * randomValueArr.length)]
@@ -106,6 +106,10 @@ export class Game {
 // ---------------------------------------------------------------------------------------- //
     // VVVVVVVVVV draw and update START VVVVVVVVVV //
     update(deltaTime) {
+        if (this.checkGameOver()) {
+            return 'game over'
+        }
+
         for (let i = 0; i < this.gameMovingObjects.length; i++) {
             const object1 = this.gameMovingObjects[i]
             for (let j = 0; j < this.gameMovingObjects.length; j++) {
@@ -162,6 +166,87 @@ export class Game {
         this.gameStaticObjects.forEach( object => object.draw(ctx) )
         this.gameMovingObjects.forEach( object => object.draw(ctx) )
     }
+
     // ^^^^^^^^^^ draw and update END ^^^^^^^^^^ //
     // ---------------------------------------------------------------------------------------- //
+    // VVVVVVVVVV check game over START VVVVVVVVVV //
+    // Gets a column at a certain position
+    getColumn(colPos) {
+        const resultCols = []
+        this.gameMovingObjects.forEach(cell => {
+            if (cell.position.y === colPos) {
+                resultCols.push(cell)
+            }
+        })
+        return resultCols
+    }
+
+    // Gets a row at a certain position
+    getRow(rowPos) {
+        const resultRows = []
+        this.gameMovingObjects.forEach(cell => {
+            if (cell.position.x === rowPos) {
+                resultRows.push(cell)
+            }
+        })
+        return resultRows
+    }
+
+    hasConsecutiveEqualValues(cells) {
+        let resultBool = false
+        cells.forEach((cell, idx) => {
+            if (cells[idx + 1]) {
+                if (cell.value === cells[idx + 1].value) {
+                    resultBool = true
+                }
+            }
+        })
+        return resultBool
+    }
+
+
+    getAllColumns() {
+        const columns = []
+        for (let i = 0; i <= 375; i += 125) {
+            columns.push(this.getColumn(i))
+        }
+        return columns
+    }
+
+    getAllRows() {
+        const rows = []
+        for (let i = 0; i <= 375; i += 125) {
+            rows.push(this.getRow(i))
+        }
+        return rows
+    }
+
+    checkGameOver() {
+        const rows = this.getAllRows()
+        const columns = this.getAllColumns()
+        let resultBool = true
+        const that = this
+
+        if (this.gameMovingObjects.length < 16) {
+            return false
+        }
+
+        rows.forEach(row => {
+            if (!this.hasConsecutiveEqualValues(row)) {
+                debugger
+                resultBool = false
+            }
+        })
+
+        columns.forEach(col => {
+            debugger
+            if (!this.hasConsecutiveEqualValues(col)) {
+                debugger
+                resultBool = false
+            }
+        })
+        if (!resultBool) console.log('game over')
+        return resultBool
+    }
+    // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //
 }

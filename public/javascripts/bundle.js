@@ -509,6 +509,10 @@ function () {
   }, {
     key: "update",
     value: function update(deltaTime) {
+      if (this.checkGameOver()) {
+        return 'game over';
+      }
+
       for (var i = 0; i < this.gameMovingObjects.length; i++) {
         var object1 = this.gameMovingObjects[i];
 
@@ -575,6 +579,98 @@ function () {
       });
     } // ^^^^^^^^^^ draw and update END ^^^^^^^^^^ //
     // ---------------------------------------------------------------------------------------- //
+    // VVVVVVVVVV check game over START VVVVVVVVVV //
+    // Gets a column at a certain position
+
+  }, {
+    key: "getColumn",
+    value: function getColumn(colPos) {
+      var resultCols = [];
+      this.gameMovingObjects.forEach(function (cell) {
+        if (cell.position.y === colPos) {
+          resultCols.push(cell);
+        }
+      });
+      return resultCols;
+    } // Gets a row at a certain position
+
+  }, {
+    key: "getRow",
+    value: function getRow(rowPos) {
+      var resultRows = [];
+      this.gameMovingObjects.forEach(function (cell) {
+        if (cell.position.x === rowPos) {
+          resultRows.push(cell);
+        }
+      });
+      return resultRows;
+    }
+  }, {
+    key: "hasConsecutiveEqualValues",
+    value: function hasConsecutiveEqualValues(cells) {
+      var resultBool = false;
+      cells.forEach(function (cell, idx) {
+        if (cells[idx + 1]) {
+          if (cell.value === cells[idx + 1].value) {
+            resultBool = true;
+          }
+        }
+      });
+      return resultBool;
+    }
+  }, {
+    key: "getAllColumns",
+    value: function getAllColumns() {
+      var columns = [];
+
+      for (var i = 0; i <= 375; i += 125) {
+        columns.push(this.getColumn(i));
+      }
+
+      return columns;
+    }
+  }, {
+    key: "getAllRows",
+    value: function getAllRows() {
+      var rows = [];
+
+      for (var i = 0; i <= 375; i += 125) {
+        rows.push(this.getRow(i));
+      }
+
+      return rows;
+    }
+  }, {
+    key: "checkGameOver",
+    value: function checkGameOver() {
+      var _this3 = this;
+
+      var rows = this.getAllRows();
+      var columns = this.getAllColumns();
+      var resultBool = true;
+      var that = this;
+
+      if (this.gameMovingObjects.length < 16) {
+        return false;
+      }
+
+      rows.forEach(function (row) {
+        if (!_this3.hasConsecutiveEqualValues(row)) {
+          debugger;
+          resultBool = false;
+        }
+      });
+      columns.forEach(function (col) {
+        debugger;
+
+        if (!_this3.hasConsecutiveEqualValues(col)) {
+          debugger;
+          resultBool = false;
+        }
+      });
+      if (!resultBool) console.log('game over');
+      return resultBool;
+    } // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //
 
   }]);
 
