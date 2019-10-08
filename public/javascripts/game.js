@@ -240,7 +240,6 @@ export class Game {
             }
         })
 
-        if (this.gameOverBool) console.log('game over')
         return this.gameOverBool
     }
     // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //

@@ -667,7 +667,6 @@ function () {
           _this3.gameOverBool = false;
         }
       });
-      if (this.gameOverBool) console.log('game over');
       return this.gameOverBool;
     } // ^^^^^^^^^^ check game over END ^^^^^^^^^^ //
 
