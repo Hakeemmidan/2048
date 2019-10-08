@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (game.checkGameOver()) {
             cancelAnimationFrame(myReq)
-            ctx.clearRect(0, 0, GAME_HEIGHT, GAME_HEIGHT)
             ctx.fillStyle = '#000000'
+            ctx.globalAlpha = 0.85
             ctx.fillRect(0, 0, GAME_HEIGHT - 10, GAME_HEIGHT - 10)
             ctx.font = '50px sans-serif'
             ctx.fillStyle = '#ffffff'
