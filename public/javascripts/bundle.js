@@ -648,21 +648,26 @@ function () {
       var rows = this.getAllRows();
       var columns = this.getAllColumns();
       var resultBool = true;
-      debugger;
 
       if (this.gameMovingObjects.length < 16) {
         return false;
       }
 
       rows.forEach(function (row) {
+        row.sort(function (cell1, cell2) {
+          return cell1.position.x - cell2.position.x;
+        });
+
         if (_this3.hasConsecutiveEqualValues(row)) {
-          debugger;
           resultBool = false;
         }
       });
       columns.forEach(function (col) {
+        col.sort(function (cell1, cell2) {
+          return cell1.position.y - cell2.position.y;
+        });
+
         if (_this3.hasConsecutiveEqualValues(col)) {
-          debugger;
           resultBool = false;
         }
       });

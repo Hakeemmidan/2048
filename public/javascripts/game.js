@@ -222,26 +222,24 @@ export class Game {
     }
 
     checkGameOver() {
-        const rows = this.getAllRows()
-        const columns = this.getAllColumns()
+        let rows = this.getAllRows()
+        let columns = this.getAllColumns()
         let resultBool = true
-
-        debugger
 
         if (this.gameMovingObjects.length < 16) {
             return false
         }
 
         rows.forEach(row => {
+            row.sort((cell1, cell2) => cell1.position.x - cell2.position.x)
             if (this.hasConsecutiveEqualValues(row)) {
-                debugger
                 resultBool = false
             }
         })
 
         columns.forEach(col => {
+            col.sort((cell1, cell2) => cell1.position.y - cell2.position.y)
             if (this.hasConsecutiveEqualValues(col)) {
-                debugger
                 resultBool = false
             }
         })
