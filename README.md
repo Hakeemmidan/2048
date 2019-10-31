@@ -18,7 +18,7 @@ Disclaimer: This game was originally made by Gabriele Cirulli. This is a clone o
 
 ## Features + How to play
 
-Dynamicallly move around using arrow keys or AWSD:
+Dynamicallly move cells around using arrow keys or AWSD:
 
 ![](./public/assets/move_around.gif)
 
