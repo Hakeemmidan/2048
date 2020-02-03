@@ -9,7 +9,8 @@
 
 ## Background and Overview
 2048 is a game where you could move square blocks around a contained grid. Once two square of the same value touch, then their values would sum and become one square. The goal of the game is to reach a square that has a value of 2048. All the squares are of even numbers.
-Disclaimer: This game was originally made by Gabriele Cirulli. This is a clone of it that I am doing to practice HTML5 Canvas.
+
+**Disclaimer: This game was originally made by Gabriele Cirulli. This is a clone of it that I am doing to practice HTML5 Canvas.**
 
 ## Setup
 - `npm install` to install dependencies
