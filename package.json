@@ -16,14 +16,14 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "webpack-cli": "^3.3.9",
     "node-fetch": "^1.7.3",
     "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.7",
-    "webpack": "^4.41.0"
+    "sass-loader": "^13.2.0",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
